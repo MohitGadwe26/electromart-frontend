@@ -1,0 +1,289 @@
+/* SearchBar.module.css - Modern Search with Animations */
+/* Added comprehensive input reset to remove browser default green border */
+
+/* Global input reset - removes all browser default highlights */
+.searchInput,
+.searchInput:focus,
+.searchInput:active,
+.searchInput:hover,
+.searchInput:focus-visible,
+.searchInput:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  text-decoration: none !important;
+}
+
+/* Remove default focus ring from all browsers */
+input:focus,
+input:focus-visible,
+input:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.searchWrapper {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+  min-width: 200px;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center; /* This ensures vertical centering of all children */
+  background: #f1f5f9;
+  border-radius: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  height: 48px; /* Fixed height for consistent alignment */
+}
+
+.searchBar:hover {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.searchBar.focused {
+  background: #ffffff;
+  border-color: #6366f1;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+.searchIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1rem;
+  color: #94a3b8;
+  transition: color 0.3s ease;
+  flex-shrink: 0; /* Prevents icon from shrinking */
+  line-height: 1; /* Ensures consistent line height */
+}
+
+.searchBar.focused .searchIcon {
+  color: #6366f1;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 0.75rem 0.75rem 0.75rem 0.5rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9375rem;
+  color: #1e293b;
+  /* Additional reset for all browsers */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  line-height: 1.2; /* Consistent line height */
+  margin: 0; /* Remove any default margins */
+  vertical-align: middle; /* Ensures vertical alignment */
+}
+
+/* Remove number input spinners (Chrome, Safari, Edge, Opera) */
+.searchInput::-webkit-outer-spin-button,
+.searchInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.searchInput[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Handle Chrome/Safari autofill styling (the light green background) */
+.searchInput:-webkit-autofill,
+.searchInput:-webkit-autofill:hover,
+.searchInput:-webkit-autofill:focus,
+.searchInput:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #f1f5f9 inset !important;
+  box-shadow: 0 0 0 30px #f1f5f9 inset !important;
+  -webkit-text-fill-color: #1e293b !important;
+  background-color: transparent !important;
+  background-clip: text !important;
+  transition: background-color 50000s ease-in-out 0s;
+}
+
+/* When focused, match the white background */
+.searchBar.focused .searchInput:-webkit-autofill,
+.searchBar.focused .searchInput:-webkit-autofill:hover,
+.searchBar.focused .searchInput:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: #1e293b !important;
+}
+
+/* Remove iOS/Safari default border radius and shadows */
+.searchInput,
+.searchInput:focus,
+.searchInput:active {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+/* Ensure placeholder doesn't trigger any borders */
+.searchInput::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  line-height: 1.2; /* Match input line height */
+}
+
+.clearBtn {
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #94a3b8;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  margin-right: 0.5rem;
+  flex-shrink: 0; /* Prevents button from shrinking */
+}
+
+.clearBtn:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  transform: scale(1.05);
+}
+
+/* Search Suggestions Dropdown */
+.searchSuggestions {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 1002;
+  animation: slideDown 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #e2e8f0;
+}
+
+.suggestionsSection {
+  padding: 0.5rem 0;
+}
+
+.suggestionsSection:not(:last-child) {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.suggestionsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  background: #f8fafc;
+}
+
+.clearAllBtn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.clearAllBtn:hover {
+  background: #fee2e2;
+  transform: scale(1.02);
+}
+
+.suggestionItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #475569;
+  font-size: 0.875rem;
+}
+
+.suggestionItem:hover {
+  background: linear-gradient(90deg, #f8fafc 0%, #ffffff 100%);
+  padding-left: 1.25rem;
+  color: #6366f1;
+}
+
+.suggestionItem svg {
+  color: #94a3b8;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.suggestionItem:hover svg {
+  color: #6366f1;
+  transform: scale(1.1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .searchWrapper {
+    max-width: 250px;
+  }
+  
+  .searchBar {
+    height: 44px; /* Slightly smaller on mobile */
+  }
+  
+  .searchInput {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .searchInput::placeholder {
+    font-size: 0.8rem;
+  }
+  
+  .searchIcon {
+    padding-left: 0.75rem;
+  }
+  
+  .searchSuggestions {
+    width: 320px;
+    left: auto;
+    right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .searchWrapper {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0.5rem;
+  }
+}

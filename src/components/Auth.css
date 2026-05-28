@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+}
+
+.auth-card {
+  width: 380px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 25px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #2ecc71;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field span {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  cursor: pointer;
+}
+
+.forgot {
+  text-align: right;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #2ecc71, #27ae60);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.divider {
+  margin: 20px 0;
+  color: #999;
+  position: relative;
+  text-align: center;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: #ddd;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.divider span {
+  background: white;
+  padding: 0 15px;
+  font-size: 14px;
+}
+
+/* Google Login Container */
+.google-login-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.google-login-container > div {
+  width: 100% !important;
+  max-width: 300px;
+}
+
+/* Optional: Custom styling for Google button if needed */
+.google-login-container iframe {
+  width: 100% !important;
+  border-radius: 25px !important;
+}
+
+/* Verify Email Styles */
+.verify-message {
+  background: #e6f7ff;
+  border: 1px solid #91d5ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.verify-message h3 {
+  color: #1890ff;
+  margin-bottom: 10px;
+}
+
+.verify-message p {
+  margin: 10px 0;
+  word-break: break-word;
+}
+
+.sub-text {
+  font-size: 14px;
+  color: #777;
+}
+
+.timer {
+  margin-top: 10px;
+  color: #999;
+  font-weight: bold;
+}
+
+/* Buttons in verify message */
+.resend-btn {
+  background: #52c41a;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.resend-btn:hover {
+  background: #389e0d;
+}
+
+.login-btn {
+  margin-top: 10px;
+  background: #1890ff;
+  width: 100%;
+}
+
+.login-btn:hover {
+  background: #40a9ff;
+}
+
+/* Loading State */
+.loading {
+  color: #555;
+  margin-bottom: 10px;
+  text-align: center;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Switch Link */
+.switch {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+.switch span {
+  color: #1890ff;
+  cursor: pointer;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.switch span:hover {
+  text-decoration: underline;
+}
+
+/* Additional Styles for Better UX */
+input[type="tel"] {
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .auth-card {
+    width: 90%;
+    padding: 30px 20px;
+    margin: 20px;
+  }
+  
+  .auth-card h2 {
+    font-size: 24px;
+  }
+  
+  input, button {
+    padding: 10px;
+  }
+}
+
+/* Error State for Inputs (Optional) */
+input.error {
+  border-color: #ff4d4f;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Success State for Inputs (Optional) */
+input.success {
+  border-color: #52c41a;
+}
+
+/* Hover Effects */
+input:hover {
+  border-color: #2ecc71;
+}
+
+/* Focus Effects */
+input:focus {
+  border-color: #2ecc71;
+  box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.1);
+}
+
+/* Google Login Button Hover Effect */
+.google-login-container > div:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s;
+}
+
+/* Disabled Button Styles */
+button:disabled {
+  background: linear-gradient(90deg, #95a5a6, #7f8c8d);
+}
