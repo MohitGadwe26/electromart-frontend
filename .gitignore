@@ -1,19 +1,15 @@
-# dependencies
+# =========================
+# Node / React
+# =========================
 node_modules/
 
-# production
 dist/
 build/
 dist-ssr/
 
-# local env files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+coverage/
 
-# logs
+# Logs
 logs
 *.log
 npm-debug.log*
@@ -22,17 +18,65 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# editor folders
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =========================
+# Java / Spring Boot
+# =========================
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# =========================
+# IDE Files
+# =========================
+
+# VS Code
 .vscode/*
 !.vscode/extensions.json
-.idea/
 
-# OS files
+# IntelliJ
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+.springBeans
+.sts4-cache/
+
+# =========================
+# OS Files
+# =========================
 .DS_Store
 Thumbs.db
 
-# misc
+# =========================
+# Misc
+# =========================
 *.local
 
-# optional
-coverage/
+# Temporary files
+tmp/
+temp/
+
+# Mac
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Windows
+Desktop.ini
